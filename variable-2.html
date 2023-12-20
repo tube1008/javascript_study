@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수-2</title>
+</head>
+<body>
+    <!-- MBTI가 뭐에요? -->
+    <button type="button" onclick="userMbti()">MBTI가 뭐에요?</button>
+    <!-- 혈액형은 뭐에요? -->
+    <button type="button" onclick="userblood()">혈액형은 뭐에요?</button>
+    <!-- 당신의 나이는? -->
+    <button type="button" onclick="userAge()">당신의 나이는?</button>
+    <script>
+        var mbti = 'enfp';
+        function userMbti(){
+            console.log(mbti)
+        }
+
+        var bloodtype = 'o형';
+        function userblood(){
+            console.log(bloodtype)
+        }
+
+        var age = '33세'; //데이터를 담은 함수명
+        function userAge(){ // 호출하는 함수명
+            console.log(age)
+        }
+        // 문자 숫자 영어 기호 모두다 섞어쓰거나 숫자가 아닌 데이터를 입력하면 반드시 ('입력값') 따옴표를 넣어준다!!!!!!!!!!
+        // 숫자 데이터는 따옴표 안써줘도됨 
+        var box1; //박스1을 변수 생성
+        var box2; //박스2 변수 생성
+        var box3; //박스3 변수 생성
+        box1 = 10; //10이라는 박스1을 대입한다
+        box1 = 20; // 기존 10데이터를 버리고 20데이터를 대입한다.
+        box2 = box1; // 20 
+        box3 = box2; // 20
+
+    </script>
+</body>
+</html>

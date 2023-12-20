@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바 스크립트 - 변수1</title>
+</head>
+<body>
+    <button type="button" onclick="order()">밥주세요!</button>
+    <button type="button" onclick="abcResult()">변수 a, b, c의 값은?</button>
+    <script>
+        // 내부스크립트
+        // 1. 목표 설정 : "밥주세요" 버튼 클릭하면 오늘의 밥, 반찬 출력
+        // 2. 절차 정리 : 밥주세요 버튼 클릭시 -> 데이터 출력
+        // 3. 필요 데이터 체크 : 버튼, 밥, 반찬
+        // 4. 재사용 필요 체크 : 함수(밥, 반찬)반복
+        var bowl = '쌀밥';
+        var side = '볶음김치';
+        var water = '북엇국';
+
+        var a; //var는 변수를지정해주는 것 a를 변수로 지정해줌
+        console.log(a); //underfined
+        a = 1; //a로 변수를 지정해줬기 때문에 var는 다시 안쓴다.
+        console.log(a); //1
+        var b = a; //<------------------------쓰는 위치에 따라 값이 바뀐다 잘보고 주의하자!!!
+        a = 2;
+        console.log(a); //2
+
+        // 새로운 값을 대입하면 기존 데이터는 지워진다.!!!!!!!!
+
+        var b = a;
+        console.log(b);
+        // a는 2를 마지막을 가지고 있기때문에 b를 생성할때 대입할때 a라는 변수로 대입했다 거기에서 a변수가 가지고 있는 값(2)를 b 에 대입한것이기 떄문에 결과값은 2가 나온다.
+
+        var c = a+b; // 두변수가 2라는 값을 가지고 있기 때문에 c의 결과값은 4가 나온다 
+        console.log(c); //2+2=4
+
+        function order(){
+            console.log(bowl);
+            console.log(side);
+            console.log(water);
+        }
+        function abcResult(){
+            console.log(a)
+            console.log(b)
+            console.log(c)
+        }
+
+        /* 
+            변수 ox
+            var 3bowl; // x 숫자가 앞에 있어서.
+            var bowl; // o 올바른 표현
+            var var; // x 키워드 쓰면 안됨
+            var var1; //  o 가능하면 추천안함 
+            var &test; // x 특수문자 안됨
+            var $test; // o 달러사인 됨
+        */
+
+
+
+
+
+    </script>
+</body>
+</html>
