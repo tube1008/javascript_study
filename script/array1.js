@@ -109,5 +109,5 @@ megabox.push('A1');
 console.log(megabox);
 megabox.push('B3');
 console.log(megabox);
-megabox.pop();
-console.log(megabox);
+// megabox.pop();
+// console.log(megabox);
