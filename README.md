@@ -74,3 +74,39 @@ ex) g = null; //
 - pop 끝값 제거
 - shift 시작 값 제거
 - delete 해당속성 제거 
+
+## Dom(Document Object Model)
+- getElementsByTagName
+    *HTML tagNode가 2개 이상일 떄 그 중 1개만 동적인 기능이 적용되어 DOM으로 등록이 필요한 거라면 변수 지정 시 [index] 설정하고(변수 바로뒤에getElementsByTagName('h1')[]<--대괄호 붙이기 ) 대입하기
+    * HTML에 TagNode가 2개 이상일 때 그 중 여러개에 동적인 기능이 적용되어 DOM이 된다면 변수 지정 시는 [index] 없이 대입(변수뒤에 대괄호 쓰지말라)하고 해당DOM 변수 호출시 필요한 경우[index] 사용하기(consol 뒤에 대괄호 붙여라)
+    --dom1.js 참고!!!
+
+-  DOM Node 변수 지정 시 
+    HTMLCollection 결과는 변수가 정상인지 오류인지 간단한 확인 시에만 사용하고 
+    실제로 DOM Node 변수를 이용한 동적인 결과를 만들어야 할때는
+    직접적인 접근으로 대상을 하나씩 개별인식하게 만들어야한다. [index]
+
+## DOM - class, Id
+    
+    1.getElementsByClassName 
+-  Class지정된 클래스 이름을 가진 모든 HTML 요소를 찾아 HTML 노드로 반환합니다.
+-  dom2.js 참고!!!
+
+    2.getElementsByIdName
+-  부모생각 안하고 써도됨
+-  dom3.js 참고!!!
+
+    3.querySelector
+-   
+    4.querySelectorAll
+-
+
+    5. value
+-   form 태그에 삽입되는 값 속성(input, option, select, button, textarea)
+-   form 태그 내에 작성했을 땐 미리 입력된 값 표현 가능
+-   javascript의 DOM.속성 `ex)DOM.value` 로 처리했을 땐 해당 DOM의 미리 입력된 값부터 사용자가 입력하는 신규 값까지 모두 인식할 수 있다.
+1.  쇼핑몰의 상품수량
+2.  쇼핑몰의 총 주문 가격
+3. 예약페이지의 여행 인원 수 등등....
+* 주의사항 -> value속성은 form 전용이므로 다른 태그일때 해당 값을 알고 싶다면 다른 속성 및 메서드를 사용해야 한다.
+* 주의 사항 -> `DOM.value` 로 값 처리 시 숫자를 쓰더라도 문자열(string)으로 인식하기 때문에 필요한 경우 `Number()` 메서드를 활용해 (Number) 데이터타입으로 변환해야한다. ex`Number(객체,value())`
