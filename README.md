@@ -110,3 +110,29 @@ ex) g = null; //
 3. 예약페이지의 여행 인원 수 등등....
 * 주의사항 -> value속성은 form 전용이므로 다른 태그일때 해당 값을 알고 싶다면 다른 속성 및 메서드를 사용해야 한다.
 * 주의 사항 -> `DOM.value` 로 값 처리 시 숫자를 쓰더라도 문자열(string)으로 인식하기 때문에 필요한 경우 `Number()` 메서드를 활용해 (Number) 데이터타입으로 변환해야한다. ex`Number(객체,value())`
+
+- onclick 클릭했을때
+- onmouseover 마우스가 HTML 요소에 올라 갔을떄
+- onmouseout  마우스가 HTML 요소에서 벗어났을떄
+- onchange input 요소의 값이 변경되었을때
+- onsubmit  
+- onload
+
+이벤트 리스너 등록과 삭제
+addEventListener 메서드는 함수를 이용한 이벤트 지정방식입니다.
+
+이벤트 대상 .addEventListener(이벤트종류, 이벤트콜백함수, 이벤트 단계)
+* 이벤트 단계는 true, false(기본값)중 하나로 설정할 수 있습니다.
+
+- 하나의 요소에 여러개의 이벤트 리스너를 등록할 수 있습니다.
+- HTML요소를 포함 모든 DOM 노드에 이벤트 리스너를 등록할 수 있습니다.
+- 다양한 추가 메서드를 이용하여 이벤트를 정밀하게 제어할 수 있습니다.
+
+DOM 관계속성
+parentNode  부모노드
+parentElement   부모요소참조
+childNodes  자식요소참조  
+firstchild  첫번째 자식 노드
+firstElementChild 첫번째 자식 요소 참조
+lastChild 마지막 자식 노드
+lastElementChild 마지막 자식 요소 참조
