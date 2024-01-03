@@ -51,7 +51,7 @@ answer_btn.addEventListener('click',function(){
     console.log(input_pay.value+input_bonus.value); // 더하기 확인
     console.log(typeof(input_pay.value+input_bonus.value)); // 계산이 안되는 문제(데이터) 확인 => string => 문제 해결(Number)
     let total = Number (input_pay.value) + Number (input_bonus.value)
-    //결과를 담 는 변수 생성후 대입
+    //결과를 담는 변수 생성후 대입
     console.log(total);
     window.alert(`총 수입은 ${total}원 입니다.`);
 })

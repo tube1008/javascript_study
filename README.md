@@ -136,3 +136,45 @@ firstchild  첫번째 자식 노드
 firstElementChild 첫번째 자식 요소 참조
 lastChild 마지막 자식 노드
 lastElementChild 마지막 자식 요소 참조
+
+
+## DOM 관계속성
+
+1. parentNode 부모 노드, parentElement 부모요소
+    - parentNode.parentNode 연속 사용 (부모의 부모 잡기)
+    - 자식 또는 자손노드.parentElement (특정 자식의 부모 잡기)
+2. javascript에서 css 제어하기 -> style 속성
+    - DOM. 관계. Style = "속성:값"; 속성:값; 속성:값;";
+        * (위) style 2번 이상 생성 시 이전 속성:값 제거됨
+    - DOM. 관계. 관계. Style. 속성 = "값";
+        * (위) style 2번 이상 생성 시 기존 속성값에 이어서 추가됨
+    - DOM. Style. 속성 = "값";
+    - 위 관계는 필요에 따라 선택 속성
+
+//----------------javascript에서 css 동적 설정-------------------
+// 객체 속성(css) 이벤트 메서드 // {} .title color font-size (속성)
+// 객체.속성(css)
+// 객체.속성.속성(css)
+// 자바스크립트에서 css를 적용할땐 인라인 스타일로 적용된다.
+// 인라인 스타일은 모든 스타일 기준 가장 우선순위가 높으므로 
+// 기존 .css파일에 디자인 되어있는 속성이 있을 때 그 값보다 우선 적용된다.
+/* aNode[0].parentNode.style = 'background-color:tomato; border:2px solid skyblue; border-radius: 10px; padding:10px;'
+aNode[0].parentNode.style = 'transform:skewX(20deg)' */
+// 추가속성 적용되면 덮어쓰기 된다.
+//객체.객체.속성 = '속성:값; 속성:값; 속성:값;'
+/* aNode[1].parentNode.style.backgroundColor = 'aqua';
+aNode[1].parentNode.style.border = '3px solid blue';
+aNode[1].parentNode.style.transform = 'rotate(-10deg)';
+// 추가속성을 적용하면 덮어쓰기 되지 않는다.
+ */
+//객체.객체.속성.속성 = '값'; --한번에 하나씪 다른거는 새로 쓴다.
+
+childNodes, children, childElementCount
+
+ 빨강 error, undifined, null 출력 없이 올바른 Node 출력이 되는지
+ 첫번째 자식, 마지막 자식 노드 잡기
+ firstChild, firstElementChild
+ lastChild, lastElementChil
+-------------------------형제노드잡기
+ 이전 형제 previousSibling, previousElementSibling
+ 다음 형제 nextSibling, nextElementSibling
