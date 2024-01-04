@@ -171,10 +171,29 @@ aNode[1].parentNode.style.transform = 'rotate(-10deg)';
 
 childNodes, children, childElementCount
 
- 빨강 error, undifined, null 출력 없이 올바른 Node 출력이 되는지
- 첫번째 자식, 마지막 자식 노드 잡기
- firstChild, firstElementChild
- lastChild, lastElementChil
+빨강 error, undifined, null 출력 없이 올바른 Node 출력이 되는지
+첫번째 자식, 마지막 자식 노드 잡기
+firstChild, firstElementChild
+lastChild, lastElementChil
 -------------------------형제노드잡기
- 이전 형제 previousSibling, previousElementSibling
- 다음 형제 nextSibling, nextElementSibling
+이전 형제 previousSibling, previousElementSibling
+다음 형제 nextSibling, nextElementSibling
+
+# (객체).innerHTML = 속성
+ `(객체).innerHTML;`  - 특정 객체의 자식, 자손 HTML 읽기
+ `(객체).innerHTML = 값;` - 변경값, HTML 삽입 및 변경
+
+# innerText 속성
+ `(객체).innerText;` - 객체의 자식, 자손 텍스트 노드 읽기 (HTML X)
+ `(객체).innerText = 값;` - 텍스트 노드 삽입 및 변경(HTML X)
+
+# appendChild 메서드
+ 객체. appendChild()
+ 객체. 객체. appendChild()
+ 객체. 속성. appendChild()
+ 객체. 속성. 속성. appendChild()
+ - 객체의 마지막 자식 노드 위치에 `()` 괄호 안 값 추가
+# createElement
+ `document.createElement()`
+ 요소 노드 자바스크립트 내에서 동적인 요도로 생성할 경우
+ 

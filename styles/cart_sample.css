@@ -1,0 +1,40 @@
+/* lay out */
+main {
+    background-color: aqua; width: 1136px; padding: 50px 0 0; margin: 0 auto;
+}
+main .item_detail {display: flex;}
+main .item_detail .left_thumnail {
+    background: #fff; width: calc(100% - 481px);
+    display: flex; 
+}
+main .item_detail .right_container {
+    background: yellow; width: 481px;
+}
+/* left_thumnail */
+main .item_detail .left_thumnail .small_thumnail {
+    width: 56px; display: flex; flex-flow: column nowrap;
+}
+main .item_detail .left_thumnail .small_thumnail a:hover {
+    border: 2px solid #35c5f0; border-radius: 8px;
+}
+main .item_detail .left_thumnail .small_thumnail img:hover {
+    transform: scale(1.2);
+}
+
+main .item_detail .left_thumnail .small_thumnail a {
+    margin-bottom: 7px; width: 56px; height: 56px;
+    border: 2px solid #fff; border-radius: 8px;
+    overflow: hidden;
+}
+main .item_detail .left_thumnail .small_thumnail a img {
+    width: 100%; transition: transform 0.3s;
+}
+main .item_detail .left_thumnail .big_thumnail {
+    width: calc(100% - 56px); text-align: center;
+}
+main .item_detail .left_thumnail .big_thumnail img {
+    width: 95%; 
+}
+/* right_container */
+
+/* right_container-form */
