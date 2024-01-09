@@ -227,3 +227,41 @@ a-- a를 처리 후 a에 1을 뺀다
 전위연산과 후위연산의 값 대입방향
 b = ++a
 b = a++
+
+
+객체.메서드 - 함수or메서드
+window.alrert('hello) : 문자 
+window.alrert(1) : 숫자 
+window.alrert(1+1) : 연산
+
+function(){}
+Number()
+string()
+DOM.appendchild()
+pormpt()
+confirm()
+createElement()
+querySelector()
+parentNode() parentElement()
+children() ChildElement() nextSibling()
+log()
+tolocalString()문자열 변환함수
+Date() 날짜
+removeChild()자식제거 remove() 요소자체제거
+window.print()
+location.href()location.href-속성or메서드 사용가능
+
+# 함수스코프(function-scope) = 지역변수와 전역변수
+1. 지역 변수(block-scope)
+    - 함수 내부에서 선언된 변수
+    - 함수 내에서만 접근가능
+2. 전역변수(global-scope)
+    - 함수 외부에서 선언된 변수
+    - 스크립트 전체 어디서든 접근 가능
+
+스코프영역을 인식한다는것 - 접근가능영역을(접근할수있는영역을) 인식한다
+
+지역변수와 전역변수
+ex)집안에서만 생활하는고양이 == 지역변수
+ex)집안과 밖 모든 생활을 즐기는 산책 고양이 == 전역변수
+
