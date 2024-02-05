@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>one-1</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        .wrap {
+            height: 100vh;
+            position: relative; top: 0; /* 초기값 설정 */
+            transition: all 0.7s;
+        }
+        .container {
+            height: 100vh; font-size: 5rem; text-align: center;
+        }
+        .container h1 {transition: all 1s;}
+        .container:nth-child(1) {background-color: aqua;}
+        .container:nth-child(2) {background-color: lime;}
+        .container:nth-child(3) {background-color: yellow;}
+        .container:nth-child(4) {background-color: tomato;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">1</div>
+        <div class="container"><h1>2</h1></div>
+        <div class="container"><h1>3</h1></div>
+        <div class="container"><h1>4</h1></div>
+    </div>
+    <script>
+
+        const wrap = document.querySelector('.wrap')
+        const container = document.querySelectorAll('.container')
+        let page = 0
+        console.log(wrap, container)
+
+        window.addEventListener('wheel',(e)=>{//e=event
+            e.preventDefault()//새로고침 막기
+            console.log(e.deltaY)
+            // 웹브라우저의 기본값 중 하나가 스크롤 이 움직일떄 이전 스크롤이 끝나지 않으면 다음스크롤 하기전에 강제로 기다리게 하는 특징이 있어요.
+            // 연속 스크롤 할때는 기다리지 않고 쭉 내리는 경우가 많기 때문에 스크롤을 기다리지 않는 설정을 또 해줘야함 여기까지 스크롤 동작은 끝!
+            // vh 단위로 했기 때문에 웹 브라우저 화면 높이를 줄여도 그만큼 자동인식 함
+            if(e.deltaY > 0){page++}
+            if(e.deltaY < 0){page--}
+            if(page > container.length-1){
+                page = container.length-1
+            } // 여기 page가 4보다 커지지 않도록 추가 설정
+            if(page < 0 ){
+                page = 0
+            } //감소값 제한
+            wrap.style.top = `${page*-100}vh`
+            console.log(`${page*-100}vh`)
+
+            //스크롤 애니메이션 동작 추가 작성 위치
+            for(let i of container){// 모든 container에 접근하기
+                console.log(i.offsetTop)//모든 continer 위치 확인
+                if(i.offsetTop >= container[1].offsetTop){// 모든 container의 위치 중 두번째 container의 위치와 같을 때
+                    //두번째 container의 첫번째 자식h1의 글자 색 변경하기
+                    container[1].children[0].style.color = '#f00'
+                }
+                if(i.offsetTop >= container[2].offsetTop){
+                    container[2].children[0].style.color = 'blue'
+                }
+                if(i.offsetTop >= container[3].offsetTop){
+                    container[3].children[0].style.color = 'green'
+                }
+            }
+
+        },{passive:false})  //이전스크롤 기다리지 않기
+        // 마우스 휠 정보가 다양하게 뜨는데 deltaY 를 여기서 써야하는데 이건 세로 스크롤 양 반환 하는 마우스 이벤트 속성
+    </script>
+</body>
+</html>
