@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery-1</title>
+    <!-- jquery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style></style>
+</head>
+<body>
+    <h1>title</h1>
+    <p class="content">content</p>
+    <p id="address">address</p>
+    <button type="button" id="btn">click</button>
+    <script>
+
+        // 제이쿼리는 자바스크립트의 DOM요소를 쉽게 사용할 수 있도록 만들어진 라이브러리 언어이다.
+        // 자바스크립트의 DOM에 관련한 속성, 메서드(함수) 등이 제이쿼리에서 쉽게 사용할수 있도록 문법적으로 변경되었기 떄문에 제이쿼리 변수를 사용하려면 속성, 메서드도 제이쿼리용으로 사용해야한다.
+        const h1Tag = $('h1')
+        const content = $('.contents')
+        const address = $('#address')
+        const btn = $('#btn')
+        console.log(h1Tag, content, address, btn)
+
+        // h1Tag.style.color = 'red' 자바스크립트
+        // h1Tag.css('color','red') 제이쿼리
+        h1Tag.get(0).style.color = 'red' //제이쿼리
+
+        h1Tag.hide() // DOM.style.display = 'none'
+        btn.on('click',function(){
+            // h1Tag.show() //DOM.style.display = 'block'
+            // h1Tag.css('display','flex')
+            // h1Tag.fadeIn(2000)
+            // h1Tag.slideToggle()
+        })
+
+        content.animate({
+            opcity:0.5,
+            color:'#ff0',
+        },1000)
+
+        $('#address').css('backgraund-color','#ff0');
+    </script>
+</body>
+</html>
