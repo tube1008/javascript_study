@@ -36,11 +36,11 @@
         console.log(wrap, container)
 
         window.addEventListener('wheel',(e)=>{//e=event
-            e.preventDefault()//새로고침 막기
+            e.preventDefault()//새로고침 막기////
             console.log(e.deltaY)
             // 웹브라우저의 기본값 중 하나가 스크롤 이 움직일떄 이전 스크롤이 끝나지 않으면 다음스크롤 하기전에 강제로 기다리게 하는 특징이 있어요.
             // 연속 스크롤 할때는 기다리지 않고 쭉 내리는 경우가 많기 때문에 스크롤을 기다리지 않는 설정을 또 해줘야함 여기까지 스크롤 동작은 끝!
-            // vh 단위로 했기 때문에 웹 브라우저 화면 높이를 줄여도 그만큼 자동인식 함
+            // vh 단위로 했기 때문에 웹 브라우저 화면 높이를 줄여도 그만큼 자동인식 함///
             if(e.deltaY > 0){page++}
             if(e.deltaY < 0){page--}
             if(page > container.length-1){
