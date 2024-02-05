@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide-1</title>
+    <!--플러그인 필수 css cdn 연결-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <!-- 이파일에 기본 디자인이 적용 되어있어 flex float 등을 쓸필요가 없고 최소한의 높이값 또는 배경색 , 배경이미지 정보 글자 디자인등 만 넣어주면 슬라이드 구조는 알아서 잡히게된다 -->
+    <!-- 그래서 swiper를 적용할때는 좀 편하게 하려면 swiper 플러그인 연결을 먼저 해두고 자동을 적용된 레이아웃 모습을 보면서 css 디자인을 하는게 작업이 편하다 -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!--플러그인 필수 JS cdn 연결-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+    <style>
+        #mainSlider1 {
+            max-width: 1000px; margin: 50px auto 0; 
+            /* overflow: hidden; */
+            height: 500px; direction:vertical설정시
+        }
+        .slide1, .slide2, .slide3 {height: 500px; font-size: 5rem;}
+        .slide1 {background-color: aqua;}
+        .slide2 {background-color: tomato;}
+        .slide3 {background-color: teal;}
+        /*  사용자 지정 page design */
+        .page_bar {color: #00f; font-weight: 800; padding: 10px;}
+        /* 사용자 지정 page design 활성화는 정해진 이름을 사용해야함!!! */
+        .swiper-pagination-bullet-active {color:#f00}
+    </style>
+</head>
+<body>
+    <!-- 
+        바깥쪽 부모에 아이디 주고 newswiper 적용 (가로스크롤로 옆으로 이어짐 적용되면)
+    -->
+    <div class="swiper-container" id="mainSlider1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">슬라이드1</div>
+            <div class="swiper-slide slide2">슬라이드2</div>
+            <div class="swiper-slide slide3">슬라이드3</div>
+        </div>
+        <div class="swiper-pagination"></div><!--페이지 번호 만드는 기능 표시용-->
+        <div class="pagination_progress"></div><!-- 페이지 로딩표시-->
+        <div class="swiper-button-prev"></div> <!--이전-->
+        <div class="swiper-button-next"></div> <!--다음-->
+    </div>
+    <div class="btn">
+        <button type="button" id="pause">일시정시</button> <!--a가능-->
+        <button type="button" id="start">다시시작</button> <!--a가능-->
+
+    </div>
+    <script>
+        const mySwiper = new Swiper('#mainSlider1',{
+        
+            // 속성ㅣ값, 속성;값,
+            autoplay:{delay:1000,},//자동재생 (기본값 false)
+            loop:true,//반복 (기본값 false)
+            // direction:'vertical',//방향(기본값 horizontal)
+            //vertical 설정시 태그 높이값도 설정해야함
+            // effect:'fade',// 제자리 효과 (direction 과 같이 쓸수 없음)
+            /* effect:'cube', //큐브돌아가는 효과
+            cubeEffect:{
+                shadow:true, //큐브 하단 그림자(안보일거면 false)
+                shadowOffset:10, // 하단 그림자 위치(기본값 20)
+                shadowScale:1.5, //하단 그림자 크기 (기본값 1)
+                slideShadows:true, // 다음 큐브 그림자 유무  (기본값 false)
+            }, */
+            grabCursor:true,//마우스 올리면 손모양 아이콘 변경하기
+            // effect:'flip', //뒤집히면서 넘어가는 효과
+
+            //페이지 번호 표시하기(html태그 먼저 준비 후 작성)
+            pagination:{
+                // el:'#mainslider1 .swiper-pagination',//적용대상
+                // type:'bullets',//모양설정
+                // el:'#mainslider1 .pagination_progress', //로딩 html연결
+                // type:'progressbar', //html 별도준비
+                // 페이지 모양을 자유롭게 변경하고 싶을 때
+                el:'#mainSlider1 .swiper-pagination',
+                type:'bullets',
+                clickabel:true,//사용자 모양 클릭 가능한 설정
+                randerBullet:function(i, name){// 사용자 지정 함수 생성
+                    console.log(i, name)//i는 인덱스, name은 page인식 이름
+                    //return 에서 원하는 태그 구현
+                    //return 으로 생성한 태그에 클래스를 주면 css 도 가능
+                    return `<span class="page_bar ${name}">${i+1}</span>`
+                }
+            } , //pagination 종료위치
+            //내비게이션 속성
+            navigation:{
+                nextEl: '#mainSlider1 .swiper-button-next',
+                prevEl: '#mainSlider1 .swiper-button-prev',
+            },
+            // 여러장의 슬라이드 보기
+            direction:'horizontal', //기본값이므로 생략 가능
+            slidesPerView:2 , // 한 화면 보이는 슬라이드 개수 (전체 슬라이드 개수 보다 최소 1개 적개 작성해야 함, 총 3개라면 최대 2개까지 )
+            spaceBetween:10,//슬라이드 사이 여백 (flex와 동일 개념)(기본값0)
+        })
+        
+        // 정지, 재상은 swiper가 기본으로 지정해주는 모양이 없기 때문에 html부터 css, javascript을 모두 직접 명령해줘야함 태그는 자유!
+        //재생 , 정지 버튼으로 swiper 제어하기
+        const pause_btn = document.querySelector('#pause')
+        const start_btn = document.querySelector('#start')
+        pause_btn.addEventListener('click',()=>{
+            //정지하고 싶은 swiper을 가진 변수명 연결
+            mySwiper.autoplay.stop()
+        })
+        start_btn.addEventListener('click',()=>{
+            mySwiper.autoplay.start()
+        })
+        // 적용시 지켜야하는것
+        // 태그 구조 지키기
+        // 태그 클래스명 지키기 (추가 클래스는 자유)
+        // 태그 부모에 아이디 설정하기 - 해당 아이디 명으로 swiper 연결하기
+        // 태그 부모에 max-width, overflow 등 필요 속성 설정하기
+        // swiper는 실무에서 가장 많이 사용함 자유도 높고 응용도 높아서 임 공식사이트를 이용해서 사용하거나 chatgpt를 이용해서 하는게 좋음
+
+    </script>
+</body>
+</html>

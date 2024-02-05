@@ -1,0 +1,122 @@
+.popup {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.popup a {
+    display: block;
+    columns: #fff;
+    color: #fff;
+}
+header {
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    padding: 50px 50px;
+}
+header h1 {
+    margin-left: 50px;
+}
+header h1 a{
+    color: #fff;
+    font-weight: 700;
+}
+header h1 a img{
+    height: 64px;
+}
+header a {
+    color: #fff;
+    font-weight: 700;}
+main {}
+main .bg {
+    background-position:center;
+    animation:bg 1s ease both;
+}
+main .bg h1 {
+    font-size: 48px;
+    color: #fff;
+    font-weight: 700;
+}
+main .bg h2 {
+    font-size: 48px;
+    color: #fff;
+    font-weight: 700;
+    /* animation: up 3s ease both; */
+}
+main .bg p {
+    font-size: 20px;
+    color: #eee;
+    line-height: 1.8;
+    margin-top: 20px;
+    /* animation: up 2s ease both; */
+}
+main .bg1 {
+    background-image: url(../images/main_bg_new2.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-attachment: fixed;
+    text-align: center;
+}
+main .bg1 h1 {position: relative; top: 50%; animation:opa 2.5s ease both;}
+main .bg2 {
+    background-image: url(../images/main_con2_bg.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-attachment: fixed;
+}
+main .bg2 {padding: 20px 50px;}
+main .bg3 {
+    background-image: url(../images/main_con3_bg.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-attachment: fixed;
+}
+main .bg3 {padding: 20px 50px;}
+main .bg4 {
+    background-image: url(../images/main_con5_bg-.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-attachment: fixed;
+}
+main .bg4 {padding: 20px 50px;}
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #000;
+    width: 100%;
+    height: 150px;
+}
+footer .btm_logo {
+    
+}
+footer .copyright {
+    color: #aaa;
+    font-size: 15px;
+}
+@keyframes opa {
+    0% {opacity:0; transform:scale(1.5)}
+    100% {opacity:1; transform:scale(1)}
+}
+@keyframes bg {
+    0% {background-size:200%}
+    100% {background-size:180%}
+}
+
+/* @keyframes up {
+    0% {opacity: 0; transform: translateY(0);}
+    100% {opacity: 1; transform: translateY(200);}
+} */
