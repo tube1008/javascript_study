@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반얀트리</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <!-- <link rel="stylesheet" href="./styles/scroll2.css"> -->
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap');
+    * {margin:0; padding:0; font-family: 'Noto Serif KR', serif; text-decoration: none; color:#222; font-size:1.0rem; line-height:1.0; font-weight:normal;}
+    #popup {position:fixed; right:20px; bottom:20px; border:2px solid #fff; padding:10px 20px; border-radius:10px;}
+    #popup a {display:block; color:#fff;}
+    header {z-index:999;display:flex; justify-content:space-between; align-items:center; position:fixed; left:0; top:0; width:100%; height:100px;}
+    header h1 {margin-left:50px;}
+    header h1 a {}
+    header h1 a img {}
+    header nav  {margin-right:50px;}
+    header nav a {color:#fff; font-weight:700;}
+    main  {}
+    main .bg {
+        background-size:cover; height:100vh; width:100%;
+        background-attachment:fixed;
+    }
+    main .bg1 {background-image:url(images/main_bg_new2.jpg); text-align:center;}
+    main .bg2 {background-image:url(images/main_con2_bg.jpg)}
+    main .bg3 {background-image:url(images/main_con3_bg.jpg)}
+    main .bg4 {background-image:url(images/main_con5_bg-.jpg)}
+    main .bg .txt {padding:100px 100px 0;}
+    main .bg .txt h1 {font-size:3rem; color:#fff; text-transform:uppercase; font-weight:700;}
+    main .bg .txt p {color:#eee; line-height:1.8; margin-top:20px;}
+    main .bg1 .txt {padding:0;}
+    main .bg1 .txt h1 {line-height:100vh;}
+    footer {display:flex; justify-content:space-around; align-items:center;background:#000; width:100%; height:150px;}
+    footer .logo {}
+    footer .logo img {}
+    footer .copy {color:#aaa; font-size:0.91rem; text-transform:uppercase;}
+    .bg { background-position:center;}
+    .bg1 {animation:bg 1s ease both;}
+    .bg1 .txt {}
+    .bg1 .txt h1 {animation:opacity 2s ease both;}
+    @keyframes opacity {
+        0% {opacity:0; transform:scale(1.2)}
+        100% {opacity:1; transform:scale(1)}
+    }
+    @keyframes bg {
+        0% {background-size:220%}
+        100% {background-size:200%}
+    }
+    .bg2 .txt *, 
+    .bg3 .txt *, 
+    .bg4 .txt *
+    {position:relative;opacity:0; top:150px;}
+
+    .bg_scale {animation:bg 2s ease both}
+    
+</style>
+</head>
+<body>
+<div id="popup"><a href="#">이너스 멤버 상담 예약</a></div>
+<header>
+    <h1><a href="#"><img src="images/logo_w.png" alt=""></a></h1>
+    <nav><a href="#">MENU</a></nav>
+</header>
+<main>
+    <div class="bg bg1 bg_scale">
+        <div class="txt"><h1>banyan tree haeundae busan</h1></div>
+    </div>
+    <div class="bg bg2">
+        <div class="txt">
+            <h1>the best sanctuary for the senses</h1>
+            <p>최상의 모든 조건, 반얀트리를 빛내는 브랜드 컬렉션, 그 중에서도 반약트리(Banyan Tree)는<br>명실상부한 럭셔리 호스피탈리티의 최상급 브랜드입니다.<br>전세계의 가장 아름답고 장엄한 자연 속에서 누리는 지역 고유의 경험.<br>최고의 휴양을 선사하는 반얀트리를 만나보십시오.</p>
+        </div>
+    </div>
+    <div class="bg bg3">
+        <div class="txt">
+            <h1>banyan tree haeundae</h1>
+            <p>부산의 아름다운 오시리아, 그 곳 해변과 한 걸음.<br>귀하께 2025년 반얀트리 해운대 부산의 탄생 소식을 전합니다.<br>세계 곳곳에서 경험하던 반약트리의 휴식, 그 이상을 이제, 부산에서도 만나실 수 있습니다.</p>
+        </div>
+    </div>
+    <div class="bg bg4">
+        <div class="txt">
+            <h1>a home in the perfect world</h1>
+            <p>반얀트리는 22개 국가에 48개의 호텔과 리조트, 64개의 스파, 골프 코스 및 레지던스를 운영하는 글로벌 기업입니다.<br>
+                완벽한 안식처를 향한 멈추지 않는 반얀트리의 노력그것은 이미, 국제적 권위를 가진 2700여 개 이상의<br>
+                수상 경력이 증명하고 있습니다. 반얀트리 해운대 부산과 함께 세계 곳곳 이름 난 비경 속의 반얀트리를 만나십시오.<br>
+                지상 최고의 휴식을 선사하겠습니다.</p>
+        </div>
+    </div>
+</main>
+<footer>
+    <p class="logo"><img src="images/footer_logo.jpg" alt=""></p>
+    <p class="copy">copyright © 2022 banyan tree haendaevusan. all rights reserved.</p>
+</footer>
+<script>
+
+    const bg = document.querySelectorAll('.bg')
+    const bg_h1 = document.querySelectorAll('.bg h1')
+    const bg_p = document.querySelectorAll('.bg p')
+
+    
+    </script>
+</body>
+</html>

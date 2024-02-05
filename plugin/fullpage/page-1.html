@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page-1</title>
+    <link rel="stylesheet" href="./full/jquery.fullPage.css">
+</head>
+    <style>
+        .wrap {}
+        .wrap .container {}
+        .wrap .container:nth-child(1) {background-color: aqua;}
+        .wrap .container:nth-child(2) {background-color: yellowgreen;}
+        .wrap .container:nth-child(3) {height: 500px !important; background-color: pink;}
+        .wrap .container:nth-child(4) {background-color: slateblue;}
+        nav {
+            position: fixed; left: 50px; top: 50px; z-index: 999;
+        }
+        nav a {}
+        /* keyframe */
+        .bg {animation: bg 2s ease both;}
+        @keyframes bg {
+            0% {transform:  translateX(0);}
+            100% {transform:  translateX(200px);}
+        }
+    </style>
+<body>
+    <nav>
+        <a href="#a">a</a>
+        <a href="#b">b</a>
+        <a href="#c">c</a>
+        <a href="#d">d</a>
+    </nav>
+    <div class="wrap">
+        <div class="container section s1">1</div>
+        <div class="container section s2">2</div>
+        <div class="container section s3 fp-auto-heiht">3</div>
+        <div class="container section s4">4</div>
+    </div>
+    <!-- 
+        태그구조는 자유이지만 fullpage를 하기 위해서 지켜야할 점은 아까 원페이지 구조짤때처럼 전체 div로 크게 묶는 부모 1개 
+        그안에서 스크롤로 움직이는 div 2개 이상 구조로 만들면돼요
+        그리고 하나더 설정해야하는 것은 html태그 이름은 자유인데 fullpage를 연결할때는 페이지로 넘어가는 div 추가 클래스를 section이라고 붙여야함
+        마지막으로 자바스크립트! fullpage 무료라이센스 쓰고 있으니 자바스크립트가 아니라 정확히는 제이쿼리..
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./full/jquery.fullPage.js"></script>
+    <script>
+        $('.wrap').fullpage({
+            //속성:값, 속성:값
+            scollBar:true,//스크롤바 표시하기 (기본값 false)
+            scrollingSpeed:2000,//스크롤바 전환속도(기본값 1000)
+            navigation:true,//우측 내비게이션 표시하기(기본값 false)
+            navigationTooltips:['아무말','제목','title','가나다'],
+            //내비게이션 마우스 올리면 제목표시
+            showActiveTooltip:true,//자동으로 제목 표시 (기본값 false)
+            menu:'nav', //상단 메뉴 클릭시 해당 메뉴 위치로 이동
+            anchors:['a','b','c','d'],//메뉴a #이름과 일치시킨 이름 작성
+            //스크롤 애니메이션 등장이 필요할 경우
+            // 제이쿼리는 화살표 함수가 불가능 하기 때문에 모두 function씀
+            // 매개변수 index현재인덱스, nextIndex다음인덱스, direction화면방향 은 이름지정 자유
+            /* onLeave:function(index, nextIndex, direction){
+                console.log(index, nextIndex, direction)
+                if(index == 1){// 인덱스가 1과 같으면 (인덱스1은 두번째 section 뜻)
+                    console.log(true)
+                    $('section:nth-child(2)').css('background-color','skyblue')
+                    //디자인 변경하기
+                    $('.s3').css('background-color','skublue')//제이쿼리 css
+                    $('.s2').get(0).style.border = '5px solid black'//자바스크립트 
+
+                }
+                if(index == 2){
+                    $('.s3').get(0).classList.add('bg')
+                }else{
+                    $('.s3').get(0).classList.remove('bg')
+                }
+            } */
+            //<a href="#title"> 이면 anchors['title']
+                // 여기까지가 기본 fullpage의 속성이고 만약 여기서 스크롤 내일때 단순 페이지만
+                // 
+            // 
+            // 
+            //$(제이쿼리대상).get(인덱스). 자바스크립트 사용 가능
+            //get 인덱스를 쓰면 자바 스크립트 사용할 수있어요 
+            //$(제이쿼리대상).style.top - '50px' -> 이건 불가능! 제이쿼리 자바 
+            // 
+            
+            // anchors 명칭과 함께하는 fullpsge 위치 인식 함수
+            // 현재 anchors 명칭은 a,b,c,d
+            afterLoad:function(anchor, index){
+                console.log(anchorsm, index) //확인
+                if(anchors == 'b'){//앵커의 위치가 b 와같으면
+                    $('.s2').get(0).classList.add('bg')
+                }else{
+                    $('.s2').get(0).classList.remove('bg')
+                }
+            }
+        })
+        // 여기서 기억할점!!!
+        // afterLoad를 fullpage 에서 쓰려면 반드시 함꼐 서야하는 fullpage 속성이 뭘까?
+        // abchors이름 과 연동하기 떄문에 필수!
+
+        // 마지막 fullpage 속성으ㅗㄹ 만약 스크롤 이동하는 화면전환이 지금처럼 모두 100vh만큼 인식하는게 아니라 특정 section 높이가 짧다면??
+    </script>
+</body>
+</html>
