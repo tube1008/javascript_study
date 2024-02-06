@@ -81,6 +81,10 @@
             num++ //증감연산자 //1-2-3-4(if)=0-1-2-3-4(if)=0 반복
             if(num > slides.length){
                 slide_container.classList.remove('slide_transition')
+                setTimeout(()=>{
+                    slide_container.style.transform = 'translateX(0px)'
+                    slide_container.classList.add('slide_transition')
+                },100)
                 num=0
                 // slide_container.classList.add('slide_transition') 다시 하면 원래대로 간다.
             }
