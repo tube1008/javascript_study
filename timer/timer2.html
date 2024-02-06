@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer2</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        .slider_wrap {
+            width: 500px; border: 5px solid black; box-sizing: border-box;
+            margin: 50px auto 0;
+        }
+        .slider_wrap .slide_container {
+            position: relative;
+        }
+        .slider_wrap .slide_container .slide {
+            width: 500px; height: 350px; font-size: 5rem;
+            position: absolute; left: 0; top: 0;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .slider_wrap .slide_container .slide1 {
+            background: pink; opacity: 1;
+        }
+        .slider_wrap .slide_container .slide2 {
+            background: greenyellow;
+        }
+        .slider_wrap .slide_container .slide3 {
+            background: skyblue; 
+        }
+        .slide_transition {transition: transform 0.3s;}
+    </style>
+</head>
+<body>
+    <div class="slider_wrap">
+        <div class="slide_container">
+            <div class="slide slide1">1</div>
+            <div class="slide slide2">2</div>
+            <div class="slide slide3">3</div>
+        </div>
+    </div>
+    <button type="button" id="pause">일시정지</button>
+    <button type="button" id="play">재생</button>
+
+    <script>
+        
+        const slide_container = document.querySelector('.slide_container')
+        const pause_btn = document.querySelector('#pause')
+        const play_btn = document.querySelector('#play')
+        
+        const slides = document.querySelectorAll('.slide')
+        console.log(slide_container, slides, pause_btn, play_btn)
+        let num = 0
+        //1-2-3-4(if)=0-1-2-3-4(if)=0 반복
+        let timer = setInterval(slide_timer, 1000)
+        function slide_timer(){
+                num++
+                if(num >= slides.length){
+                    for(let i of slides){i.style.opacity=0}
+                    num=0
+                }
+                console.log(num)
+                slides[num].style.opcity = 1
+        }
+        
+    </script>
+</body>   
+</html>
