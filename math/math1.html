@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math-1</title>
+</head>
+<body>
+    <input type="text" name="txt" id="txt">
+    <input type="number" name="num" id="num" value="1">
+    <button type="button" id="btn">click</button>
+    <p class="result"></p>
+    <script src="./data.js"></script>
+    <script>
+
+        const txt = document.querySelector('#txt')
+        const num = document.querySelector('#num')
+        const btn = document.querySelector('#btn')
+        const result = document.querySelector('.result')
+        console.log(txt, num, btn)
+        let min_result
+
+        btn.addEventListener('click',()=>{
+            min_result = Math.max(data[0].price, data[1].price, data[2].price)
+            for(let i of data){
+                if(i.price == min_result){
+                    result.innerHTML = i.price + i.price + '원'
+                }
+            }
+            // txt.value = Math.min(1, 10, -100)
+            // num.value = Math.min(1,2,3,4,5)
+            // txt.value = Math.abs(-1.5)
+            // num.value = Math.abs(-10)
+            // txt.value = Math.round(123.456)
+            // num.value = Math.round(1.6) //5보다 크면 큰수로..
+            // txt.value = Math.ceil(153.456)
+            // num.value = Math.ceil(1.9) //무조건 반올림
+            // txt.value = Math.floor(Math.random()*5)
+            // num.value = Math.floor(Math.random()*10) 
+            // txt.value = Math.random()
+            // num.value = Math.random() //버튼을 클릭시 랜덤한 숫자가 나온다
+            // txt.value = Math.PI
+            // num.value = Math.PI
+        })
+    </script>
+</body>
+</html>
